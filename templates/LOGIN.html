@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <title>LOGIN</title>
+        </head>
+        <body style="text-align: center">
+            <h1>LOGIN TO ACCESS AND SAVE YOUR PASSWORDS</h1>
+            <form action="/login" id="registration" method="post">
+              <ul>
+                <li>
+
+                    <input name="email" placeholder="email" type="text">
+                </li>
+                <li>
+
+                    <input name="password" placeholder="password" type="text">
+                </li>
+                <li>
+
+                    <input name="confirmation" placeholder="again password" type="password">
+                </li>
+                <li>
+
+                    <input name="agreement" type="checkbox"> I agree
+                </li>
+                <li>
+
+                    <input type="submit" value="register">
+                </li>
+              </ul>
+            </form>
+            <script>
+                var form = document.getElementById('registration');
+                form.onsubmit = function(){
+                    if (form.email.value == '')
+                    {
+                        alert('missing email');
+                        return false;
+                    }
+                    else if (form.password.value == '')
+                    {
+                        alert('missing password')
+                        return false;
+                    }
+                    else if (form.confirmation.value == '')
+                    {
+                        alert('missing password2')
+                        return false;
+                    }
+                    else if (form.password.value != form.confirmation.value)
+                    {
+                        alert('password don\'t match')
+                        return false;
+                    }
+                    else if (!form.agreement.checked)
+                    {
+                        alert('checkbox unchecked')
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+        </body>
+</html>

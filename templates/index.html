@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>SAVE YOUR PASSWORD</h1>
+<form action="/save" method = "post">
+<ul>
+    <li>
+    <input type="text" autofocus name="site" placeholder="site">
+    </li>
+     <li>
+        <input type="password" autofocus name="password" placeholder="password">
+     </li>
+     <li>
+        <input name="confirmation" placeholder="again password" type="password">
+    </li>
+     <li>
+        <input type="" autofocus name="time" placeholder="time">
+     </li>
+
+        <button type="submit">save</button>
+</form>
+<script>
+    var form = document.getElementById('save');
+    form.onsubmit = function(){
+        if (form.site.value == '')
+        {
+            alert('missing site');
+            return false;
+        }
+        else if (form.password.value == '')
+        {
+            alert('missing password')
+            return false;
+        }
+        else if (form.confirmation.value == '')
+        {
+            alert('missing password2')
+            return false;
+        }
+        else if (form.password.value != form.confirmation.value)
+        {
+            alert('password don\'t match')
+            return false;
+        }
+        return true;
+    }
+</script>
+{% endblock %}
